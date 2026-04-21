@@ -1,7 +1,17 @@
 {
   "permissions": {
     "allow": [
-      "WebSearch"
+      "WebSearch",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\('version','?'\\)\\)\")",
+      "Bash(npm info *)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\('version','?'\\), d.get\\('peerDependencies',{}\\)\\)\")",
+      "Bash(npm uninstall *)",
+      "Bash(grep -l \"bundler\" node_modules/next/dist/docs/01-app/03-api-reference/05-config/01-next-config-js/*.md)",
+      "Bash(npx next *)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(curl -s http://localhost:3001/)"
     ]
   }
 }

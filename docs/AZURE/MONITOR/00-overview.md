@@ -52,6 +52,45 @@ Azure Monitor is an **umbrella service**, not a single product. It unifies what 
 
 See [`02-metrics.md`](02-metrics.md) and [`03-logs-and-log-analytics.md`](03-logs-and-log-analytics.md).
 
+## Distributed Tracing — the "third pillar"
+
+The industry-standard **three pillars of observability** are **Metrics, Logs, and Distributed Tracing**. Azure Monitor covers all three — tracing just doesn't have its own data store; it lives inside the **Logs store** as correlated rows in Application Insights tables.
+
+| Pillar | Azure Monitor home | Key tables / tools |
+|--------|--------------------|--------------------|
+| **Metrics** | Metrics store (time-series) | Metrics Explorer, platform & custom metrics |
+| **Logs** | Logs store (Log Analytics) | KQL, `AppTraces`, `AzureDiagnostics`, `Syslog`, etc. |
+| **Distributed Tracing** | Logs store (via Application Insights) | `AppRequests` + `AppDependencies` correlated by `operation_Id` / `operation_ParentId` |
+
+### How it works
+
+Every telemetry item carries **`operation_Id`** (= W3C `trace-id`) and **`operation_ParentId`** (= `parent-span-id`). This links requests, dependency calls, exceptions, and logs into a single end-to-end transaction tree across services.
+
+```
+Browser → Frontend API → Order Service → Cosmos DB
+(PageView)  (Request)    (Dep→Request)   (Dependency)
+   └──────────── all share the same operation_Id ──────────────┘
+```
+
+| OpenTelemetry concept | App Insights table | Notes |
+|-----------------------|--------------------|-------|
+| Trace | Correlated set via `operation_Id` | End-to-end transaction |
+| Span (server) | `AppRequests` | Incoming call |
+| Span (client) | `AppDependencies` | Outgoing call (HTTP, SQL, Service Bus, etc.) |
+| SpanEvent | `AppExceptions` / `AppTraces` | Exception or log attached to a span |
+
+### Portal surfaces for tracing
+
+- **Application Map** — auto-generated topology with failure/latency hotspots.
+- **End-to-end transaction search** — trace waterfall view showing the full span tree.
+- **Failures / Performance blades** — drill from aggregates into individual traces.
+
+### Cross-service / cross-workspace tracing
+
+If services emit telemetry to **different** Log Analytics workspaces, trace stitching requires **cross-workspace queries**: `workspace('other').AppRequests | where operation_Id == "..."`. For full-fidelity tracing, a **single workspace** is preferred (AZ-305 design point).
+
+> **Why "2 stores" not "3 pillars"?** Azure frames its architecture around storage engines. Traces decompose into table rows in the Logs store — they're a query-time reconstruction, not a separate backend. The distinction matters for cost modeling (traces are billed as log ingestion) and for exam answers.
+
 ## Related (but separate) products
 
 | Service | Scope | Relationship |
