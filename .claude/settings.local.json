@@ -11,7 +11,17 @@
       "Bash(grep -l \"bundler\" node_modules/next/dist/docs/01-app/03-api-reference/05-config/01-next-config-js/*.md)",
       "Bash(npx next *)",
       "Bash(curl -s http://localhost:3000/)",
-      "Bash(curl -s http://localhost:3001/)"
+      "Bash(curl -s http://localhost:3001/)",
+      "Bash(touch TYPES/value-types.md TYPES/reference-types.md)",
+      "Bash(touch CONSTRUCTS/operators.md CONSTRUCTS/if-switch-and-switch-expression.md CONSTRUCTS/loops.md CONSTRUCTS/break-continue-return.md CONSTRUCTS/using-and-lock.md CONSTRUCTS/async-await.md)",
+      "Bash(touch EXPRESSIONS/member-access.md EXPRESSIONS/type-testing.md EXPRESSIONS/pattern-matching.md EXPRESSIONS/collection-expressions.md)",
+      "Bash(touch OOP/classes-records-structs.md OOP/constructors-properties-fields-methods.md OOP/encapsulation-inheritance-polymorphism.md OOP/interfaces-abstract-classes-sealed-anonymous-objects.md OOP/static-and-generics.md)",
+      "Bash(touch COLLECTIONS/array.md COLLECTIONS/list.md COLLECTIONS/dictionary.md COLLECTIONS/hashset.md COLLECTIONS/stack.md COLLECTIONS/queue.md COLLECTIONS/readonly-collections.md COLLECTIONS/concurrent-collections.md COLLECTIONS/immutable-collections.md COLLECTIONS/frozen-collections.md)",
+      "Bash(rm EXPRESSIONS/member-access.md EXPRESSIONS/type-testing.md EXPRESSIONS/pattern-matching.md EXPRESSIONS/collection-expressions.md)",
+      "Bash(rm COLLECTIONS/array.md COLLECTIONS/list.md COLLECTIONS/dictionary.md COLLECTIONS/hashset.md COLLECTIONS/stack.md COLLECTIONS/queue.md)",
+      "Bash(rm ERROR_HANDLING/try-catch-finally.md ERROR_HANDLING/catch-filters.md ERROR_HANDLING/throwing-exceptions.md)",
+      "Bash(rm GENERAL_TOPICS/tuples.md GENERAL_TOPICS/attributes.md GENERAL_TOPICS/regex.md GENERAL_TOPICS/streams.md GENERAL_TOPICS/xml-json-and-binary-serialization.md)",
+      "Bash(touch EXPRESSIONS/member-access-type-testing-pattern-matching-collection-expressions.md)"
     ]
   }
 }
