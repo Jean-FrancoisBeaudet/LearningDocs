@@ -21,7 +21,9 @@
       "Bash(rm COLLECTIONS/array.md COLLECTIONS/list.md COLLECTIONS/dictionary.md COLLECTIONS/hashset.md COLLECTIONS/stack.md COLLECTIONS/queue.md)",
       "Bash(rm ERROR_HANDLING/try-catch-finally.md ERROR_HANDLING/catch-filters.md ERROR_HANDLING/throwing-exceptions.md)",
       "Bash(rm GENERAL_TOPICS/tuples.md GENERAL_TOPICS/attributes.md GENERAL_TOPICS/regex.md GENERAL_TOPICS/streams.md GENERAL_TOPICS/xml-json-and-binary-serialization.md)",
-      "Bash(touch EXPRESSIONS/member-access-type-testing-pattern-matching-collection-expressions.md)"
+      "Bash(touch EXPRESSIONS/member-access-type-testing-pattern-matching-collection-expressions.md)",
+      "Bash(xargs -I {} echo {})",
+      "Bash(xargs -I{} basename \"{}\")"
     ]
   }
 }
