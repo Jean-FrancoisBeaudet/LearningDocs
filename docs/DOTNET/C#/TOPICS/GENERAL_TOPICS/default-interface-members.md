@@ -1,6 +1,6 @@
 # Default interface members (DIM)
 
-_Targets .NET 10 / C# 14. See also: [Interfaces, abstract classes, sealed](../OOP/interfaces-abstract-sealed-anonymous.md), [Extension members](./extension-members.md), [Generic constraints and variance](./generic-constraints-and-variance.md)._
+_Targets .NET 10 / C# 14. See also: [Interfaces, abstract classes, sealed](../OOP/interfaces-abstract-classes-sealed-anonymous-objects.md), [Extension members](./extension-members.md), [Generic constraints and variance](./generic-constraints-and-variance.md)._
 
 Default interface members — added in C# 8 / .NET Core 3.0 — let an interface ship **a body** for a method, property, indexer, or event. The driving scenario was API evolution: a library adds a new member to a public interface without breaking every existing implementer. They are **not** a substitute for traits, mix-ins, or abstract classes, and reaching for them by default is usually a sign of a shaky design.
 

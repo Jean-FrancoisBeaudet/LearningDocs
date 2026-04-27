@@ -1,6 +1,6 @@
 # Generic constraints and variance
 
-_Targets .NET 10 / C# 14. See also: [ref return, ref struct, record struct](./ref-return-ref-struct-record-struct.md), [Interfaces / abstract / sealed](../OOP/interfaces-abstract-sealed-anonymous.md), [Readonly collections](../COLLECTIONS/readonly-collections.md)._
+_Targets .NET 10 / C# 14. See also: [ref return, ref struct, record struct](./ref-return-ref-struct-record-struct.md), [Interfaces / abstract / sealed](../OOP/interfaces-abstract-classes-sealed-anonymous-objects.md), [Readonly collections](../COLLECTIONS/readonly-collections.md)._
 
 Generics give you parametric polymorphism without boxing. Constraints tell the compiler **what it's allowed to assume about `T`**; variance tells it **which reference conversions between `I<T>` and `I<U>` are safe**. Both are static: enforced by the compiler, erased-ish at runtime (generics are reified in the CLR, not erased like the JVM — an important difference).
 
